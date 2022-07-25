@@ -1,0 +1,13 @@
+@startuml
+
+left to right direction
+actor Ceo as ceo
+
+package CEO {
+usecase "see product sell" as sell
+  usecase "action employed Manager" as employed
+}
+ceo --> sell #line:pink
+ceo --> employed #line:pink
+
+@enduml

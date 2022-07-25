@@ -1,0 +1,28 @@
+@startuml
+
+actor BANQUEAPI as banqueapi
+actor apiGeoloc as apiGeoloc
+banqueapi -- systeme
+apiGeoloc -- systeme
+left to right direction
+
+actor Client as client
+actor Cooker as cooker
+actor DevliveryMan as deliveryMan
+actor Manager as manager
+actor CEO as CEO
+
+
+
+Rectangle systeme {
+
+}
+
+client --> systeme
+cooker --> systeme
+deliveryMan --> systeme
+manager --> systeme
+CEO --> systeme
+
+
+@enduml

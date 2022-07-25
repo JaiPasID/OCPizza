@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+actor Client as client
+actor Manager as manager
+actor DeliveryMan as deliveryMan
+
+package ApplicationClient {
+  usecase "Create Account" as CreateAccount
+  usecase "identification" as id
+  usecase "See Menu" as menu
+  usecase "Change order" as changeMenu
+  usecase "Order" as mOrder
+  usecase "Receive Notification" as notification
+  usecase "follow order" as followOrder
+  usecase "follow delivery" as followDelivery
+  usecase "evaluate order" as evaluateOrder
+  usecase "share" as mShare
+  usecase "paiement" as paiementCustumer
+  usecase "See History Order" as SeeHistoryOrder
+}
+
+client --> id #line:red
+client --> menu #line:red
+client --> changeMenu #line:red
+client --> mOrder #line:red
+client <-- notification #line:red
+client --> followOrder #line:red
+client --> followDelivery #line:red
+client --> evaluateOrder #line:red
+client --> mShare #line:red
+client --> CreateAccount #line:red
+client --> paiementCustumer #line:red
+client --> SeeHistoryOrder #line:red
+
+manager --> paiementCustumer #line:blue
+deliveryMan --> paiementCustumer #line:blue
+@enduml

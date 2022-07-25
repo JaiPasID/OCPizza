@@ -1,0 +1,72 @@
+@startuml
+
+
+rectangle Custumer {
+(Start Application) as started
+(create Acount) as created
+(see Menu) as see
+(choose order) as choose
+(validate order) as validate
+(choose paiement) as choosePaiement
+(paiement delivery) as paiementDelivery
+(paiement card) as paiementCard
+(order Completed) as  orderCompleted
+(receive confirmation) as confirmation
+
+}
+
+rectangle Manager {
+(validate order) as validateOrder
+}
+
+rectangle Cooker{
+(receive Order) as receiveOrder
+(Change Statut Order) as changeStatut
+(see recipe) as seeRecipe
+(End Order) as endOrder
+}
+rectangle Delivery {
+(receive Order) as reveiveCommand
+(Accept Order) as acceptOrder
+(Start GPS) as GPS
+(Take Order) as takeOrder
+(Change Statut) as changeStatutCommand
+(Go to custumer) as goToCustumer
+(Arrival) as arrive
+}
+
+
+started --> created
+created --> see
+see --> choose
+choose --> validate
+validate --> choosePaiement
+choosePaiement --> paiementDelivery
+choosePaiement --> paiementCard
+paiementDelivery --> orderCompleted
+paiementCard --> orderCompleted
+orderCompleted --> confirmation
+
+paiementDelivery --> validateOrder
+paiementCard --> validateOrder
+validateOrder --> orderCompleted
+
+validateOrder --> receiveOrder
+receiveOrder --> changeStatut
+changeStatut --> seeRecipe
+seeRecipe --> endOrder
+endOrder --> confirmation
+
+endOrder --> reveiveCommand
+reveiveCommand --> acceptOrder
+acceptOrder --> confirmation
+acceptOrder --> GPS
+GPS --> takeOrder
+takeOrder --> changeStatutCommand
+changeStatutCommand --> confirmation
+takeOrder --> goToCustumer
+goToCustumer --> arrive
+arrive --> confirmation
+
+
+@enduml

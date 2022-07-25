@@ -1,0 +1,51 @@
+@startuml
+
+
+left to right direction
+
+actor Manager as manager
+actor Custumer as custumer
+
+
+
+
+package Manager{
+
+
+  usecase "receive order" as receive
+  usecase "paiement order" as paiementOrder
+  usecase "modify menu" as modifyMenu
+  usecase "delete custumer" as delete
+  usecase "storage" as mStorage
+  usecase "order product" as orderProduct
+  usecase "Manage Employed" as employed
+  usecase "Check Review" as check
+  usecase "take order by phone" as takeorderbyphone
+  usecase "Create account employed"
+  usecase "delete account employed"
+  usecase "achive employed"
+  usecase "see history order"
+
+
+}
+
+
+
+
+
+manager --> receive #line:green
+manager --> paiementOrder #line:green
+manager --> modifyMenu #line:green
+manager --> delete #line:green
+manager --> orderProduct #line:green
+manager --> mStorage #line:green
+manager --> employed #line:green
+manager --> check #line:green
+manager --> takeorderbyphone #line:green
+custumer <-- receive #line:red : notification
+
+
+
+
+
+@enduml

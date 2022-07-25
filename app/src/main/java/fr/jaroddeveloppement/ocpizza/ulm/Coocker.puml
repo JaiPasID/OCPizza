@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+actor Cuisinier as cooker
+actor Custumer as custumer
+actor Manager as manager
+
+package Cooker {
+usecase "see recipe" as seeRecipe
+  usecase "receive order" as receiveOrder
+  usecase "Change Statut" as finishOrder
+  usecase "call help" as callHelp
+}
+cooker --> seeRecipe #line:blue
+cooker --> receiveOrder #line:blue
+cooker --> finishOrder #line:blue
+cooker --> callHelp #line:blue
+custumer <-- finishOrder #line:red : notification
+manager <-- callHelp : notification
+
+@enduml

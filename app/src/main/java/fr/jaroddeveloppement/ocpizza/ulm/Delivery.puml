@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+actor Delivery as deliveryMan
+
+package Delivery {
+
+ usecase "Receive Order" as notif
+  usecase "Use GPS" as gps
+  usecase "end delivery" as endDelivery
+  usecase "Accepted Paiement" as paiement
+  usecase "See history order"
+}
+deliveryMan <-- notif #line:orange : notification
+deliveryMan --> gps #line:orange
+deliveryMan --> paiement #line:orange
+deliveryMan --> endDelivery #line:orange
+@enduml
